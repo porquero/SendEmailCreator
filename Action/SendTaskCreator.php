@@ -56,7 +56,7 @@ class SendTaskCreator extends Base
             $this->emailClient->send(
                 $user['email'],
                 $user['name'] ?: $user['username'],
-                $this->getParam('subject'),
+                $this->getParam('subject') . ' #' . $data['task_id'],
                 $this->template->render('notification/task_create', array(
                     'task' => $data['task'],
                 ))
